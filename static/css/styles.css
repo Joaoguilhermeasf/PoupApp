@@ -1,0 +1,185 @@
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    font-family: 'Arial', sans-serif;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    background: linear-gradient(135deg, #a6ddb2 0%, #7db68a 100%);
+    position: relative;
+    overflow: hidden;
+}
+
+
+.login-box {
+    background: #fff;
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    display: flex;
+    align-items: center;
+    height: 25vw;
+    min-height: 500px;
+}
+
+
+.login-form {
+    text-align: center;
+}
+
+.login-form h2 {
+    margin: 0;
+    color: #333;
+}
+
+.login-form p {
+    color: #666;
+}
+
+.login-form input {
+    width: 90%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+.login-form a {
+    color: #7db68a;
+    text-decoration: none;
+    display: block;
+    margin: 10px 0;
+}
+
+.login-form button {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: none;
+    border-radius: 5px;
+    background: #7db68a;
+    color: #fff;
+    cursor: pointer;
+}
+
+.login-form{
+    margin-top: 20px;
+}
+
+.login-form{
+    margin: 0;
+    color: #666;
+}
+
+.login-form{
+    width: 100%;
+    padding: 10px;
+    margin: 5px 0;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    background: #fff;
+    color: #333;
+    cursor: pointer;
+}
+.center-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+}
+
+.ilustra {
+ 
+  width: 90%;
+  max-width: 512px;
+  height: auto;
+  margin-right: 20%;
+}
+
+.ilustra img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+}
+
+.floating {
+  animation: float 3s ease-in-out infinite;
+}
+
+.floating-itens {
+  animation: float-itens 5s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes float-itens {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-15px);
+  }
+}
+.center-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+  }
+  
+  .ilustra {
+    position: relative;
+    width: 512px;
+    height: 768px;
+  }
+  
+  .ilustra img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: auto;
+  }
+  
+  .floating {
+    animation: float 3s ease-in-out infinite;
+  }
+  
+  .floating-itens {
+    animation: float-itens 5s ease-in-out infinite;
+  }
+  
+  @keyframes float {
+    0%, 100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-10px);
+    }
+  }
+  
+  @keyframes float-itens {
+    0%, 100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-15px);
+    }
+  }

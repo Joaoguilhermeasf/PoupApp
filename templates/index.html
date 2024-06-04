@@ -1,27 +1,35 @@
-{% extends "template.html" %}
-{% block content %}
-
-<div style="margin: 20%;">
-
-        {{ form.hidden_tag() }}
-        <h1>PoupApp</h1>
-        <div class="input-form">
-            <div class="form-group mb-3">
-                {{ form.login(class="form-control", placeholder="Digite o seu e-mail") }}
-            </div>
-            <div class="form-group mb-4">
-                {{ form.password(class="form-control", placeholder="Digite sua senha") }}
-            </div>
-        </div>
-        <div class="form-group" style="display:flex;">
-            <form id="login-form" action="" method="post">
-                {{ form.entrar(class="btn btn-primary") }}<br>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Screen</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+<body>
+    <div class="container">
+        <div class="login-box">
+            <div class="center-container">
+                <div class="ilustra">
+                  <img src="{{ url_for('static', filename='img/portal.png') }}" alt="Portal" class="portal">
+                  <img src="{{ url_for('static', filename='img/efeitos.png') }}" alt="Efeitos" class="floating">
+                  <img src="{{ url_for('static', filename='img/cofrinho.png') }}" alt="Cofrinho" class="floating">
+                  <img src="{{ url_for('static', filename='img/itens.png') }}" alt="Itens" class="floating-itens">
+                  <img src="{{ url_for('static', filename='img/moedas1.png') }}" alt="Moedas1" class="floating">
+                  <img src="{{ url_for('static', filename='img/moedas2.png') }}" alt="Moedas2" class="floating">
+                </div>
+              </div>
+            <form class="login-form">
+                <h2>Welcome!</h2>
+                <p>Sign in to your Account</p>
+                <input type="email" placeholder="Email Address">
+                <input type="password" placeholder="Password">
+                <a href="#">Forgot Password?</a>
+                <button type="submit">Sign In</button>
+                <button type="button">Sign Up</button>
+            
             </form>
-            <form id="reg-form" action="{{url_for('cadastrar')}}" method="get">
-                {{ form.cadastrar(class="btn btn-primary", style="margin-left: 10px;") }}<br>
-            </form>
         </div>
-    </form>
-</div>
-
-{%endblock%}
+    </div>
+</body>
+</html>
