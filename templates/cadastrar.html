@@ -2,9 +2,9 @@
 {% block content %}
 
 <div style="margin: 20%;">
-
+    <form id="reg-form" action="" method="post">
         {{ form.hidden_tag() }}
-        <h1>PoupApp</h1>
+        <h1>Cadastrar</h1>
         <div class="input-form">
             <div class="form-group mb-3">
                 {{ form.login(class="form-control", placeholder="Digite o seu e-mail") }}
@@ -12,16 +12,15 @@
             <div class="form-group mb-4">
                 {{ form.password(class="form-control", placeholder="Digite sua senha") }}
             </div>
-        </div>
-        <div class="form-group" style="display:flex;">
-            <form id="login-form" action="" method="post">
-                {{ form.entrar(class="btn btn-primary") }}<br>
-            </form>
-            <form id="reg-form" action="{{url_for('cadastrar')}}" method="get">
-                {{ form.cadastrar(class="btn btn-primary", style="margin-left: 10px;") }}<br>
-            </form>
+            <div class="form-group mb-4">
+                {{ form.repeat_password(class="form-control", placeholder="Digite sua senha novamente") }}
+            </div>
+            <div class="form-group mb-4" >
+                {{ form.cadastrar(class="btn btn-primary") }}
+            </div>
         </div>
     </form>
+    <a class="btn btn-danger" href="{{ url_for('index') }}" role="button">Voltar</a>
 </div>
 
 {%endblock%}
