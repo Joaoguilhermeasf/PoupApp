@@ -29,25 +29,36 @@ class User(UserMixin):
 @app.route('/cadastrar/', methods=['GET', 'POST'])
 def cadastrar():
     form = RegForm()
-    if request.method == 'POST':
+
+    if request.method == 'POST' and form.validate():
       user_login = form.user_login.data
       user_firstname = form.user_firstname.data
       user_lastname = form.user_lastname.data
-      user_pass = str(generate_password_hash(form.user_pass.data).decode("utf-8"))
-      user_repeat_password = str(generate_password_hash(form.user_repeat_password.data).decode("utf-8"))
+      user_pass = form.user_pass.data
+      user_repeat_password = form.user_repeat_password.data
       user_email = form.user_email.data
+
+      if user_pass != user_repeat_password:
+        return render_template('cadastrar.html', form=form, error='As senhas devem ser iguais.\nTente novamente.')
+
+      user = Users.query.filter_by(user_email=user_email).first()
+      if user:
+        return render_template('cadastrar.html', form=form, error='O email já está cadastrado.\nTente novamente.')
 
       user = Users.query.filter_by(user_login=user_login).first()
       if user:
          return render_template('cadastrar.html', form=form, error='Houve um problema ao tentar se cadastrar.\nTente novamente.')
 
+
+
       new_user = Users(
             user_login=user_login,
             user_firstname=user_firstname,
             user_lastname=user_lastname,
-            user_pass=user_pass,
+            user_pass=str(generate_password_hash(user_pass).decode('utf-8')),
             user_email=user_email
       )
+
       db.session.add(new_user)
       db.session.commit()
       #print(f"{user_login} {user_firstname} {user_lastname} {user_email}")
