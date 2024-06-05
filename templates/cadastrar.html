@@ -1,19 +1,35 @@
 {% extends "template.html" %}
 {% block content %}
 
-<div style="margin: 20%;">
-    <form id="reg-form" action="" method="post">
+<!-- TODO: estilizar e remover estilos implicitos -->
+<div style="margin: 5%;">
+    <form id="reg-form" action="{{ url_for('cadastrar') }}" method="post">
         {{ form.hidden_tag() }}
         <h1>Cadastrar</h1>
         <div class="input-form">
             <div class="form-group mb-3">
-                {{ form.login(class="form-control", placeholder="Digite o seu e-mail") }}
+                {{ form.user_login.label(class="form-title")}}
+                {{ form.user_login(class="form-control", placeholder="Login") }}
+            </div>
+            <div class="form-group mb-3">
+                {{ form.user_firstname.label(class="form-title")}}
+                {{ form.user_firstname(class="form-control", placeholder="Primeiro nome") }}
+            </div>
+            <div class="form-group mb-3">
+                {{ form.user_lastname.label(class="form-title")}}
+                {{ form.user_lastname(class="form-control", placeholder="Sobrenome") }}
             </div>
             <div class="form-group mb-4">
-                {{ form.password(class="form-control", placeholder="Digite sua senha") }}
+                {{ form.user_pass.label(class="form-title")}}
+                {{ form.user_pass(class="form-control", placeholder="Digite sua senha") }}
             </div>
             <div class="form-group mb-4">
-                {{ form.repeat_password(class="form-control", placeholder="Digite sua senha novamente") }}
+                {{ form.user_repeat_password.label(class="form-title")}}
+                {{ form.user_repeat_password(class="form-control", placeholder="Digite sua senha novamente") }}
+            </div>
+            <div class="form-group mb-3">
+                {{ form.user_email.label(class="form-title")}}
+                {{ form.user_email(class="form-control", placeholder="Email") }}
             </div>
             <div class="form-group mb-4" >
                 {{ form.cadastrar(class="btn btn-primary") }}

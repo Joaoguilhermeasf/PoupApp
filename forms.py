@@ -1,15 +1,18 @@
 from flask_wtf import FlaskForm
-from wtforms import StringField, validators, SubmitField, PasswordField, IntegerField, DateField, BooleanField, RadioField, SelectField, TextAreaField, SelectField
+from wtforms import StringField, validators, SubmitField, PasswordField, EmailField
 
 class UserForm(FlaskForm):
-    login = StringField('Login: ',[validators.DataRequired(),validators.Length(min=1,max=20)])
+    login = StringField('Login: ',[validators.DataRequired(),validators.Length(min=1,max=60)])
     password = PasswordField('Senha: ',[validators.DataRequired()])
     entrar = SubmitField('Entrar')
     cadastrar = SubmitField('Inscrever-se')
 
 
 class RegForm(FlaskForm):
-    login = StringField('Login: ',[validators.DataRequired(),validators.Length(min=1,max=20)])
-    password = PasswordField('Senha: ',[validators.DataRequired()])
-    repeat_password = PasswordField('Repita a senha: ',[validators.DataRequired()])
+    user_login = StringField('Login: ',[validators.DataRequired(),validators.Length(min=1,max=60)])
+    user_firstname = StringField('Nome: ',[validators.DataRequired(),validators.Length(min=1,max=255)])
+    user_lastname = StringField('Sobrenome: ',[validators.DataRequired(),validators.Length(min=1,max=255)])
+    user_email = EmailField('Email: ', [validators.DataRequired()])
+    user_pass = PasswordField('Senha: ',[validators.DataRequired()])
+    user_repeat_password = PasswordField('Repita a senha: ',[validators.DataRequired()])
     cadastrar = SubmitField('Cadastrar')

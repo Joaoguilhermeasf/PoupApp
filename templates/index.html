@@ -13,16 +13,20 @@
                   <img src="{{ url_for('static', filename='img/moedas2.png') }}" alt="Moedas2" class="floating">
                 </div>
             </div>
-            <form class="login-form">
-                {{ form.hidden_tag() }}
-                <h2>PoupApp!</h2>
-                <p>Faça login em sua conta</p>
-                {{ form.login(placeholder="Digite o seu e-mail") }}
-                {{ form.password(placeholder="Digite sua senha") }}
-                <a href="#">Esqueceu a senha?</a>
-                <button type="submit">{{ form.entrar.label.text }}</button>
-                <button type="button">{{ form.cadastrar.label.text }}</button>
-            </form>
+            <div class="login-form">
+                <form>
+                    {{ form.hidden_tag() }}
+                    <h2>PoupApp!</h2>
+                    <p>Faça login em sua conta</p>
+                    {{ form.login(placeholder="Digite seu login") }}
+                    {{ form.password(placeholder="Digite sua senha") }}
+                    <a href="">Esqueceu a senha?</a>
+                    <button type="submit">{{ form.entrar.label.text }}</button>
+                </form>
+                <form action="{{ url_for('cadastrar') }}" method="get">
+                    <button type="submit">{{ form.cadastrar.label.text }}</button>
+                </form>
+            </div>
         </div>
     </div>
 
