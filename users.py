@@ -1,8 +1,8 @@
 from main import app, db
-from flask import render_template, request, url_for, redirect
+from flask import render_template, request, url_for, redirect, session
 from models import Users
 from forms import RegForm, UserForm
-from flask_login import login_user, logout_user, login_required,current_user
+from flask_login import login_user, logout_user, login_required
 from flask_login import UserMixin
 from flask_bcrypt import check_password_hash,generate_password_hash
 
@@ -50,7 +50,6 @@ def cadastrar():
          return render_template('cadastrar.html', form=form, error='Houve um problema ao tentar se cadastrar.\nTente novamente.')
 
 
-
       new_user = Users(
             user_login=user_login,
             user_firstname=user_firstname,
@@ -62,6 +61,7 @@ def cadastrar():
       db.session.add(new_user)
       db.session.commit()
       #print(f"{user_login} {user_firstname} {user_lastname} {user_email}")
+      session['success'] = 'Usuário cadastrado com sucesso.'
       return redirect(url_for('index'))
 
     return render_template('cadastrar.html', form=form)

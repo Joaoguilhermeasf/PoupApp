@@ -1,4 +1,4 @@
-from flask import render_template, url_for, redirect
+from flask import render_template, url_for, redirect, session
 from main import app
 from flask_login import login_required
 from forms import UserForm
@@ -11,7 +11,8 @@ def index():
 @app.route("/login/")
 def login(error=""):
     form = UserForm()
-    return render_template("index.html", form=form, error=error)
+    success = session.pop('success', None)
+    return render_template("index.html", form=form, error=error, success=success)
 
 @app.route('/dashboard/', methods=['GET', 'POST'])
 @login_required

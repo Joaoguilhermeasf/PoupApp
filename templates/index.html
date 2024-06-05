@@ -25,4 +25,38 @@
         </div>
     </div>
 
+    {% if success %}
+        <p id="success_text" hidden>{{success}}</p>
+        <!-- Modal -->
+        <div id="myModal" class="modal fade" role="dialog">
+            <div class="modal-dialog modal-dialog-centered">
+                <!-- Modal content-->
+                <div class="modal-content" style="color:black;">
+                    <div class="modal-header">
+                        <h5 class="modal-title text-success"><b>Sucesso</b></h5>
+                    </div>
+                    <div class="modal-body" id="modalBody">
+                        <p id="modal_text">modal_text</p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn-info" data-bs-dismiss="modal" id="cancelButton">Fechar</button>
+                </div>
+            </div>
+
+            </div>
+        </div>
+        <script>
+            var modalText = document.getElementById("modalBody");
+            var successText = document.getElementById("success_text").textContent;
+            modalText.innerHTML = successText;
+            var myModal = new bootstrap.Modal(document.getElementById('myModal'), {
+                backdrop: 'static'
+            });
+            myModal.show();
+
+            document.getElementById('cancelButton').addEventListener("click", function () {
+                myModal.hide();
+            });
+        </script>
+    {% endif %}
 {% endblock %}
