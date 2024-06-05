@@ -9,7 +9,7 @@
                 </div>
             </div>
             <div class="login-form">
-                <form>
+                <form method='post' action="{{ url_for('autenticar') }}">
                     {{ form.hidden_tag() }}
                     <h2>PoupApp</h2>
                     <p>Faça login em sua conta.</p>
