@@ -5,7 +5,7 @@ class UserForm(FlaskForm):
     login = StringField('Login: ',[validators.DataRequired(),validators.Length(min=1,max=20)])
     password = PasswordField('Senha: ',[validators.DataRequired()])
     entrar = SubmitField('Entrar')
-    cadastrar = SubmitField('Cadastrar')
+    cadastrar = SubmitField('Inscrever-se')
 
 
 class RegForm(FlaskForm):
