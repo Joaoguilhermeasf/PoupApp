@@ -2,41 +2,52 @@
 {% block content %}
 
 <!-- TODO: estilizar e remover estilos implicitos -->
-<div style="margin: 5%;">
-    <form id="reg-form" action="{{ url_for('cadastrar') }}" method="post">
-        {{ form.hidden_tag() }}
-        <h1>Cadastrar</h1>
-        <div class="input-form">
-            <div class="form-group mb-3">
-                {{ form.user_login.label(class="form-title")}}
-                {{ form.user_login(class="form-control", placeholder="Login") }}
+<div class="container-register">
+    <div class="register-img">
+        <img src="{{ url_for('static', filename='img/cadastro.svg') }}" alt="image register" class="floating">
+    </div>
+    <div class="register-form">
+        <form action="{{ url_for('cadastrar') }}" method="post">
+            {{ form.hidden_tag() }}
+            <div class="register-header">
+                <div class="register-title">
+                    <h1>Cadastre-se</h1>
+                </div>
+                <div class="login-button">
+                    <button><a href="{{ url_for('login') }}" role="button">Entrar</a></button>
+                </div>
             </div>
-            <div class="form-group mb-3">
-                {{ form.user_firstname.label(class="form-title")}}
-                {{ form.user_firstname(class="form-control", placeholder="Primeiro nome") }}
+            <div class="input-group">
+                <div class="input-box">
+                    {{ form.user_login.label()}}
+                    {{ form.user_login(placeholder="Usuário") }}
+                </div>
+                <div class="input-box">
+                    {{ form.user_firstname.label()}}
+                    {{ form.user_firstname(placeholder="Primeiro nome") }}
+                </div>
+                <div class="input-box">
+                    {{ form.user_lastname.label()}}
+                    {{ form.user_lastname(placeholder="Sobrenome") }}
+                </div>
+                <div class="input-box">
+                    {{ form.user_email.label()}}
+                    {{ form.user_email(placeholder="E-mail") }}
+                </div>
+                <div class="input-box">
+                    {{ form.user_pass.label(class="form-title")}}
+                    {{ form.user_pass(placeholder="Digite sua senha") }}
+                </div>
+                <div class="input-box">
+                    {{ form.user_repeat_password.label(class="form-title")}}
+                    {{ form.user_repeat_password(placeholder="Digite sua senha novamente") }}
+                </div>
             </div>
-            <div class="form-group mb-3">
-                {{ form.user_lastname.label(class="form-title")}}
-                {{ form.user_lastname(class="form-control", placeholder="Sobrenome") }}
+            <div>
+                {{ form.cadastrar(class="register-button") }}
             </div>
-            <div class="form-group mb-4">
-                {{ form.user_pass.label(class="form-title")}}
-                {{ form.user_pass(class="form-control", placeholder="Digite sua senha") }}
-            </div>
-            <div class="form-group mb-4">
-                {{ form.user_repeat_password.label(class="form-title")}}
-                {{ form.user_repeat_password(class="form-control", placeholder="Digite sua senha novamente") }}
-            </div>
-            <div class="form-group mb-3">
-                {{ form.user_email.label(class="form-title")}}
-                {{ form.user_email(class="form-control", placeholder="Email") }}
-            </div>
-            <div class="form-group mb-4" >
-                {{ form.cadastrar(class="btn btn-primary") }}
-            </div>
-        </div>
-    </form>
-    <a class="btn btn-danger" href="{{ url_for('login') }}" role="button">Voltar</a>
+        </form>
+    </div>
 </div>
 
 {% if error | length > 0 %}

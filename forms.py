@@ -9,7 +9,7 @@ class UserForm(FlaskForm):
 
 
 class RegForm(FlaskForm):
-    user_login = StringField('Login: ',[validators.DataRequired(),validators.Length(min=1,max=60)])
+    user_login = StringField('Usuário: ',[validators.DataRequired(),validators.Length(min=1,max=60)])
     user_firstname = StringField('Nome: ',[validators.DataRequired(),validators.Length(min=1,max=255)])
     user_lastname = StringField('Sobrenome: ',[validators.DataRequired(),validators.Length(min=1,max=255)])
     user_email = EmailField('Email: ', [validators.DataRequired()])
