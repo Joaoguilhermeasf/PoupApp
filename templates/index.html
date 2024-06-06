@@ -2,6 +2,9 @@
 {% block content %}
 
     <div class="container">
+        <div class="background">
+            <img src="{{ url_for('static', filename='img/background.png') }}" alt="Efeitos">
+          </div>
         <div class="login-box">
             <div class="center-container">
                 <div class="ilustra">
@@ -12,9 +15,9 @@
                 <form method='post' action="{{ url_for('autenticar') }}">
                     {{ form.hidden_tag() }}
                     <h2>PoupApp</h2>
-                    <p>Faça login em sua conta.</p>
-                    {{ form.login(placeholder="Digite seu login") }}
-                    {{ form.password(placeholder="Digite sua senha") }}
+                    <p>Entre em sua conta.</p>
+                    {{ form.login(placeholder="Usuário") }}
+                    {{ form.password(placeholder="Senha") }}
                     <a href="">Esqueceu a senha?</a>
                     <button type="submit">{{ form.entrar.label.text }}</button>
                 </form>
