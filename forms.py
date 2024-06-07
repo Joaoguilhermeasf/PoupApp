@@ -16,3 +16,12 @@ class RegForm(FlaskForm):
     user_pass = PasswordField('Senha: ',[validators.DataRequired()])
     user_repeat_password = PasswordField('Repita a senha: ',[validators.DataRequired()])
     cadastrar = SubmitField('Cadastrar')
+
+class ResetarForm(FlaskForm):
+    email = EmailField('Email', [validators.DataRequired()])
+    submit = SubmitField('Recuperar Senha')
+
+class ResetarSenhaForm(FlaskForm):
+    password = PasswordField('Senha', [validators.DataRequired(), validators.Length(min=6)])
+    confirm_password = PasswordField('Repita a Senha', [validators.DataRequired(), validators.EqualTo('password')])
+    submit = SubmitField('Alterar Senha')

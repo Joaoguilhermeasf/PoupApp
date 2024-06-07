@@ -18,7 +18,7 @@
                     <p>Entre em sua conta.</p>
                     {{ form.login(placeholder="Usuário") }}
                     {{ form.password(placeholder="Senha") }}
-                    <a href="">Esqueceu a senha?</a>
+                    <a href="{{ url_for('resetar_senha') }}">Esqueceu a senha?</a>
                     <button type="submit">{{ form.entrar.label.text }}</button>
                 </form>
                 <form action="{{ url_for('cadastrar') }}" method="get" class="button-register">

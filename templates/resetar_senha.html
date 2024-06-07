@@ -1,0 +1,18 @@
+{% extends "template.html" %}
+{% block content %}
+
+    <div class="container">
+        <div class="login-form">
+            <h1>Recuperar Senha</h1>
+            <form method="POST">
+                {{ form.hidden_tag() }}
+                <p>
+                    {{ form.email.label }}<br>
+                    {{ form.email(size=32) }}<br>
+                    {{ form.submit() }}
+                </p>
+            </form>
+        </div>
+    </div>
+
+{% endblock %}

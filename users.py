@@ -1,10 +1,15 @@
 from main import app, db
 from flask import render_template, request, url_for, redirect, session
 from models import Users
-from forms import RegForm, UserForm
+from forms import RegForm, UserForm, ResetarForm, ResetarSenhaForm
 from flask_login import login_user, logout_user, login_required
 from flask_login import UserMixin
 from flask_bcrypt import check_password_hash,generate_password_hash
+from flask_mail import Mail, Message
+from itsdangerous import URLSafeTimedSerializer
+
+mail = Mail(app)
+s = URLSafeTimedSerializer(app.config['SECRET_KEY'])
 
 class User(UserMixin):
     def __init__(self, user_login, user_firstname, user_lastname, user_pass, user_email):
@@ -91,6 +96,45 @@ def autenticar():
     return redirect(url_for('index'))
 
 
+@app.route('/resetar_senha/', methods=['GET', 'POST'])
+def resetar_senha():
+    form = ResetarForm()
+
+    if form.validate_on_submit():
+        email = form.email.data
+        token = s.dumps(email, salt='poupapp-recuperar-senha')
+        link = url_for('resetar_token', token=token, _external=True)
+
+        msg = Message('PoupApp: Recuperação de Senha', sender='lucasfernandess203@gmail.com', recipients=[email])
+        msg.body = f'Por favor clique no link para recuperar sua senha: {link}'
+        mail.send(msg)
+
+        return redirect(url_for('login'))
+    return render_template('resetar_senha.html', form=form)
+
+@app.route('/resetar_senha/<token>', methods=['GET', 'POST'])
+def resetar_token(token):
+    try:
+        email = s.loads(token, salt='poupapp-recuperar-senha', max_age=3600)
+    except:
+        return redirect(url_for('resetar_senha'))
+
+    form = ResetarSenhaForm()
+    if form.validate_on_submit():
+        if email:
+            user = Users.query.filter_by(user_email=email).first()
+        else:
+            return redirect(url_for('login', error='Email inválido.\nTente novamente.'))
+
+        if user:
+            user.user_pass = str(generate_password_hash(form.password.data).decode('utf-8'))
+            db.session.commit()
+            session['success'] = 'Senha alterada com sucesso.'
+            return redirect(url_for('login'))
+
+        return redirect(url_for('login', error='Usuário não encontrado com esse email.\nTente novamente.'))
+    return render_template('resetar_token.html', form=form)
+
 @app.route('/deslogar')
 @login_required
 def deslogar():
@@ -98,4 +142,4 @@ def deslogar():
     logout_user()
     form = UserForm()
     print('Conta deslogada!')
-    return render_template('index.html', form=form, error="")
+    return redirect(url_for('index', error=""))

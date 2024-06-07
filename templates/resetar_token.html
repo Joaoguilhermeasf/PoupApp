@@ -1,0 +1,22 @@
+{% extends "template.html" %}
+{% block content %}
+
+    <div class="container">
+        <div class="login-form">
+            <h1>Alterar Senha</h1>
+            <form method="POST">
+                {{ form.hidden_tag() }}
+                <p>
+                    {{ form.password.label }}<br>
+                    {{ form.password(size=32) }}<br>
+                </p>
+                <p>
+                    {{ form.confirm_password.label }}<br>
+                    {{ form.confirm_password(size=32) }}<br>
+                </p>
+                <p>{{ form.submit() }}</p>
+            </form>
+        </div>
+    </div>
+
+{% endblock %}
