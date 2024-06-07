@@ -4,7 +4,7 @@
     <div class="container">
         <div class="background">
             <img src="{{ url_for('static', filename='img/background.png') }}" alt="Efeitos">
-          </div>
+        </div>
         <div class="login-box">
             <div class="center-container">
                 <div class="ilustra">
@@ -21,7 +21,7 @@
                     <a href="">Esqueceu a senha?</a>
                     <button type="submit">{{ form.entrar.label.text }}</button>
                 </form>
-                <form action="{{ url_for('cadastrar') }}" method="get">
+                <form action="{{ url_for('cadastrar') }}" method="get" class="button-register">
                     <button type="submit">{{ form.cadastrar.label.text }}</button>
                 </form>
             </div>
