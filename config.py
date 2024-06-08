@@ -13,5 +13,5 @@ MAIL_SERVER = 'smtp.gmail.com'
 MAIL_PORT = 587
 MAIL_USE_TLS = True
 MAIL_USE_SSL = False
-MAIL_USERNAME = 'lucasfernandess203@gmail.com'
-MAIL_PASSWORD = 'pvaj ncgs elgm ovnp'
+MAIL_USERNAME = 'poupapp.info@gmail.com'
+MAIL_PASSWORD = 'chqf hege bkjg qncy'

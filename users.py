@@ -105,7 +105,7 @@ def resetar_senha():
         token = s.dumps(email, salt='poupapp-recuperar-senha')
         link = url_for('resetar_token', token=token, _external=True)
         corpo_email = render_template('template_email.html', link=link)
-        msg = Message('PoupApp: Recuperação de Senha', sender='lucasfernandess203@gmail.com', recipients=[email])
+        msg = Message('PoupApp: Recuperação de Senha', sender='poupapp.info@gmail.com', recipients=[email])
         msg.html = corpo_email
         mail.send(msg)
 
