@@ -268,13 +268,13 @@ animation: float-itens 5s ease-in-out infinite;
 
 .register-form {
   width: 50%;
-  display: flex;
+  display: block;
   justify-content: center;
   align-items: center;
   background-color: #fff;
   border: 1px solid #ddd;
   border-radius: 5px;
-  padding: 3rem;
+  padding: 5rem;
 }
 
 .register-header {
@@ -284,7 +284,8 @@ animation: float-itens 5s ease-in-out infinite;
 }
 
 .login-button button{
-  display: flex;
+  margin-top: 0.5rem;
+  display: block;
   background-color: #0f572e;
   padding: 0.4rem 1rem;
   border-radius: 5px;
@@ -374,3 +375,18 @@ animation: float-itens 5s ease-in-out infinite;
     min-width: 400px;
   }
 }
+
+.login-button{
+  position: relative;
+  display: block;
+}
+
+@media (max-width: 1530px){
+  .register-form{
+    padding: 3rem;
+  }
+  .register-header{
+    margin-top: 10%;
+  }
+}
+  

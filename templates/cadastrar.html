@@ -14,9 +14,6 @@
                 <div class="register-title">
                     <h1>Cadastre-se</h1>
                 </div>
-                <div class="login-button">
-                    <button><a href="{{ url_for('login') }}" role="button">Entrar</a></button>
-                </div>
             </div>
             <div class="input-group">
                 <div class="input-box">
@@ -48,6 +45,9 @@
                 {{ form.cadastrar(class="register-button") }}
             </div>
         </form>
+        <div class="login-button">
+            <button><a href="{{ url_for('login') }}" role="button">Voltar</a></button>
+        </div>
     </div>
 </div>
 
