@@ -1,11 +1,143 @@
-{% extends "template.html" %}
-{% block content %}
-
-    <div class="container">
-        <div class="login-form">
-            <h1>RYANZADA</h1>
-            <a class="btn btn-danger" href="{{ url_for('deslogar') }}" role="button">Deslogar</a>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PoupApp</title>
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="{{ url_for('static', filename='css/home.css') }}">
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="icon" type="image/png" href="{{ url_for('static', filename='img/logo.png') }}">
+<script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+<link href="https://fonts.googleapis.com/css2?family=Satoshi:wght@400;700&display=swap" rel="stylesheet">
+<script src="https://cdn.plot.ly/plotly-latest.min.js"></script> <!-- Adicionado -->
+</head>
+<body>
+  <div class="background">
+    <img src="{{ url_for('static', filename='img/home_bg.png') }}" alt="">
+  </div>
+  <div class="content">
+    <div class="sidebar">
+      <div class="top">
+        <div class="logo">
+          <img src="{{ url_for('static', filename='img/logo.png') }}" alt="Logo">
         </div>
+        <ul class="menu">
+          <li class="listaMenu"><a href="#"><span>INÍCIO</span></a></li>
+          <li class="listaMenu">
+            <a href="#"><span>ANÁLISES</span></a>
+            <ul class="submenu">
+              <li><a href="#">GRÁFICOS</a></li>
+              <li><a href="#">MESES ANTERIORES</a></li>
+            </ul>
+          </li>
+          <li class="listaMenu"><a href="#"><span>RECEITAS</span></a>
+            <ul class="submenu">
+              <li><a href="#">GANHOS</a></li>
+              <li><a href="#">REEMBOLSOS</a></li>
+              <li><a href="#">ECONOMIAS</a></li>
+              <li><a href="#">PAGAMENTOS</a></li>
+            </ul>
+          </li>
+          <li class="listaMenu"><a href="#"><span>USUÁRIO</span></a>
+            <ul class="submenu">
+              <li><a href="#">PERFIL DE USUÁRIO</a></li>
+              <li><a href="#">CONFIGURAÇÕES DE USUÁRIO</a></li>
+              <li><a href="#">SAIR</a></li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+      <div class="bottom">
+        <div class="schedule">
+          <span>CONFIGURAÇÕES</span>
+        </div>
+        <div class="profile">
+          <img src="{{ url_for('static', filename='img/perfil.png') }}" alt="Profile Picture">
+          <div>
+            <div>Ryan Michel</div>
+            <div style="color: #aaa;">Tatuador</div>
+          </div>
+        </div>
+      </div>
     </div>
+    <div class="articles">
+      <div class="article1">
+        <div class="articleitem1">
+          <div class="info">
+            <div class="dados">
+              <div class="portfolio">
+                <div class="stats">
+                  <div class="stat">
+                    <p>Saldo</p>
+                    <h2>$42,069.00<br><span class="up">↑ 24%</span></h2>
+                  </div>
+                  <div class="stat">
+                    <p>Investimentos</p>
+                    <h2>$20,619.00<br><span class="up">↑ 28%</span></h2>
+                  </div>
+                  <div class="stat">
+                    <p>Despesas</p>
+                    <h2>$8,961.00<br><span class="up">↑ 2%</span></h2>
+                  </div>
+                  <div class="stat">
+                    <p>Ganhos</p>
+                    <h2>$10,420.00<br><span class="down">↓ 5%</span></h2>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="details">
+            <div class="squares">
+              <p>VAL3</p>
+              <h2>$150.00<br><span class="up">↑ 5%</span></h2>
+            </div>
+            <div class="squares">
+              <p>PETR4</p>
+              <h2>$200.00<br><span class="down">↓ 3%</span></h2>
+            </div>
+            <div class="squares">
+              <p>BBAS3</p>
+              <h2>$350.00<br><span class="up">↑ 8%</span></h2>
+            </div>
+            <div class="squares">
+              <p>PRIO3</p>
+              <h2>$120.00<br><span class="down">↓ 2%</span></h2>
+            </div>
+          </div>
+          <div id="chart" style="height: 370px; width: 100%;"></div>
+        </div>
+        <div class="articleitem2">
+          <div class="item2cont">
+            <div class="velocimetro" id="velocimetro"></div> <!-- Adicionado -->
+            <div class="w3-container">
+              <p>VAL3</p>         
+              <div class="w3-light-grey w3-round-xlarge">
+                <div class="w3-container w3-blue w3-round-xlarge" style="width:28%">28%</div>
+              </div>
+              <p>PETR4</p>         
+              <div class="w3-light-grey w3-round-xlarge">
+                <div class="w3-container w3-blue w3-round-xlarge" style="width:30%">30%</div>
+              </div>
+              <p>BBAS3</p>         
+              <div class="w3-light-grey w3-round-xlarge">
+                <div class="w3-container w3-blue w3-round-xlarge" style="width:33%">33%</div>
+              </div>
+              <p>PRIO3</p>         
+              <div class="w3-light-grey w3-round-xlarge">
+                <div class="w3-container w3-blue w3-round-xlarge" style="width:37%">37%</div>
+              </div>
+            </div>
+          </div>
+          <div>
+            
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 
-{% endblock %}
+  <script src="{{ url_for('static', filename='js/home.js') }}"></script>
+</body>
+</html>
