@@ -9,6 +9,11 @@ class Users(db.Model):
     user_email = db.Column(db.String(255), nullable=False)
     user_firstname = db.Column(db.String(255), nullable=False)
     user_lastname = db.Column(db.String(255), nullable=False)
+    user_access_level = db.Column(
+        db.Enum('Padrão', 'Pro', name='user_type'),
+        nullable=False,
+        server_default='Padrão'
+    )
 
     def __repr__(self):
         return '<user_id: %r>' % self.user_id

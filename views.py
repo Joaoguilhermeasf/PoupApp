@@ -1,6 +1,6 @@
 from flask import render_template, url_for, redirect, session
 from main import app
-from flask_login import login_required
+from flask_login import login_required, current_user
 from forms import UserForm
 
 @app.route('/')
@@ -17,4 +17,5 @@ def login(error=""):
 @app.route('/dashboard/', methods=['GET', 'POST'])
 @login_required
 def dashboard():
-   return render_template('dashboard.html')
+   user = current_user
+   return render_template('dashboard.html', user=user)

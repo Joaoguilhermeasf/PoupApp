@@ -43,7 +43,7 @@
             <ul class="submenu">
               <li><a href="#">PERFIL DE USUÁRIO</a></li>
               <li><a href="#">CONFIGURAÇÕES DE USUÁRIO</a></li>
-              <li><a href="#">SAIR</a></li>
+              <li><a method='post' href="{{ url_for('deslogar') }}">SAIR</a></li>
             </ul>
           </li>
         </ul>
@@ -55,8 +55,8 @@
         <div class="profile">
           <img src="{{ url_for('static', filename='img/perfil.png') }}" alt="Profile Picture">
           <div>
-            <div>Ryan Michel</div>
-            <div style="color: #aaa;">Tatuador</div>
+            <div>{{ user.user_firstname }} {{ user.user_lastname}}</div>
+            <div style="color: #aaa;">{{ user.get_access_level() }}</div>
           </div>
         </div>
       </div>
@@ -112,26 +112,26 @@
           <div class="item2cont">
             <div class="velocimetro" id="velocimetro"></div> <!-- Adicionado -->
             <div class="w3-container">
-              <p>VAL3</p>         
+              <p>VAL3</p>
               <div class="w3-light-grey w3-round-xlarge">
                 <div class="w3-container w3-blue w3-round-xlarge" style="width:28%">28%</div>
               </div>
-              <p>PETR4</p>         
+              <p>PETR4</p>
               <div class="w3-light-grey w3-round-xlarge">
                 <div class="w3-container w3-blue w3-round-xlarge" style="width:30%">30%</div>
               </div>
-              <p>BBAS3</p>         
+              <p>BBAS3</p>
               <div class="w3-light-grey w3-round-xlarge">
                 <div class="w3-container w3-blue w3-round-xlarge" style="width:33%">33%</div>
               </div>
-              <p>PRIO3</p>         
+              <p>PRIO3</p>
               <div class="w3-light-grey w3-round-xlarge">
                 <div class="w3-container w3-blue w3-round-xlarge" style="width:37%">37%</div>
               </div>
             </div>
           </div>
           <div>
-            
+
           </div>
         </div>
       </div>

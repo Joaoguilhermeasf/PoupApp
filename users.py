@@ -12,22 +12,26 @@ mail = Mail(app)
 s = URLSafeTimedSerializer(app.config['SECRET_KEY'])
 
 class User(UserMixin):
-    def __init__(self, user_login, user_firstname, user_lastname, user_pass, user_email):
+    def __init__(self, user_login, user_firstname, user_lastname, user_pass, user_email, user_access_level):
         self.user_login = user_login
         self.user_firstname = user_firstname
         self.user_lastname = user_lastname
         self.user_pass = user_pass
         self.user_email = user_email
+        self.user_access_level = user_access_level
 
     def get_id(self):
            return (self.user_login)
+
+    def get_access_level(self):
+        return (self.user_access_level)
 
     @staticmethod
     def get(login):
         print('User login: ',login)
         user_record = Users.query.filter_by(user_login=login).first()
         if user_record:
-            return User(user_record.user_login, user_record.user_firstname, user_record.user_lastname, user_record.user_pass, user_record.user_email)
+            return User(user_record.user_login, user_record.user_firstname, user_record.user_lastname, user_record.user_pass, user_record.user_email, user_record.user_access_level)
         return None
 
 #TODO: Terminar, criptografar senha, verificações devidas
@@ -60,7 +64,7 @@ def cadastrar():
             user_firstname=user_firstname,
             user_lastname=user_lastname,
             user_pass=str(generate_password_hash(user_pass).decode('utf-8')),
-            user_email=user_email
+            user_email=user_email,
       )
 
       db.session.add(new_user)
@@ -82,7 +86,7 @@ def autenticar():
             password = check_password_hash(user.user_pass, form.password.data)
             if password:
                 print('pass ok')
-                log_user = User(user.user_login, user.user_firstname, user.user_lastname, user.user_pass, user.user_email)
+                log_user = User(user.user_login, user.user_firstname, user.user_lastname, user.user_pass, user.user_email, user.user_access_level)
                 login_user(log_user)
                 print('Usuário logado:', user)
                 return redirect(url_for('dashboard'))
@@ -140,6 +144,5 @@ def resetar_token(token):
 def deslogar():
     print('Saindo da conta...')
     logout_user()
-    form = UserForm()
     print('Conta deslogada!')
     return redirect(url_for('index', error=""))
