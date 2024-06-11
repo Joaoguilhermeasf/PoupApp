@@ -25,17 +25,55 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   });
 
+  // Calcular o valor máximo do array series.data
+
+var series_values = [];
+var series_dates = [];
+var maxYValue;
+var lenDates;
+
+fetch('/gastos')
+  .then(response => response.json())
+  .then(data => {
+    // Pegar os valores retornados e atribuir às variáveis globais
+    series_values = data.series_values;
+    series_dates = data.series_dates;
+
+    // Realizar as operações que dependem dos dados dentro deste bloco
+    maxYValue = Math.max(...series_values);
+    minYValue = Math.min(...series_values);
+    lenDates = series_dates.length;
+
+    // Inicializar o gráfico ApexCharts após receber os dados
+    iniciarGrafico();
+  })
+  .catch(error => {
+    console.error('Erro:', error);
+  });
+
+function iniciarGrafico() {
   // Código para inicializar o gráfico ApexCharts
   var options = {
     series: [{
       name: 'Gastos',
-      data: [4, 3, 10, 9, 29, 19, 22, 9, 12, 7, 19, 5, 13, 9, 17, 2, 7, 5]
+      data: series_values
     }],
     chart: {
       height: 350,
       type: 'line',
+      zoom: {
+        enabled: false
+      },
       toolbar: {
         show: false
+      }
+    },
+    tooltip: {
+      y: {
+        formatter: function(value) {
+          // Formatar o valor como moeda ou float
+          return 'R$ ' + parseFloat(value).toFixed(2); // ou qualquer formatação de moeda ou float desejada
+        }
       }
     },
     forecastDataPoints: {
@@ -43,33 +81,30 @@ document.addEventListener('DOMContentLoaded', function() {
     },
     stroke: {
       width: 5,
-      curve: 'smooth'
+      curve: 'smooth',
+      colors: ['#00e8f5']
     },
     xaxis: {
       type: 'datetime',
-      categories: ['1/11/2000', '2/11/2000', '3/11/2000', '4/11/2000', '5/11/2000', '6/11/2000', '7/11/2000', '8/11/2000', '9/11/2000', '10/11/2000', '11/11/2000', '12/11/2000', '1/11/2001', '2/11/2001', '3/11/2001', '4/11/2001' ,'5/11/2001' ,'6/11/2001'],
-      tickAmount: 10,
+      categories: series_dates,
+      tickAmount: lenDates,
       labels: {
         formatter: function(value, timestamp, opts) {
-          return opts.dateFormatter(new Date(timestamp), 'dd MMM')
+          return opts.dateFormatter(new Date(timestamp), 'MMM yyyy')
         }
       }
     },
-    title: {
-      text: '',
-      align: 'left',
-      style: {
-        fontSize: "16px",
-        color: '#666'
-      }
+    yaxis: {
+      min: (minYValue -2) < 0 ? 0 : minYValue-2 ,
+      tickAmount: maxYValue / 2
     },
     fill: {
       type: 'gradient',
       gradient: {
         shade: 'dark',
-        gradientToColors: ['#FDD835'], // Alterado para laranja claro
+        gradientToColors: ['#c92d0e'], // Alterado para laranja claro
         shadeIntensity: 1,
-        type: 'horizontal',
+        type: 'vertical',
         opacityFrom: 100,
         opacityTo: 100,
         stops: [0, 100, 100, 100]
@@ -79,6 +114,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
   var chart = new ApexCharts(document.querySelector("#chart"), options);
   chart.render();
+}
 
   // Código para inicializar o gráfico Plotly
   var data = [
@@ -90,7 +126,7 @@ document.addEventListener('DOMContentLoaded', function() {
       delta: { reference: 12550, increasing: { color: "green" } },
       gauge: {
         axis: { range: [null, 20000], tickwidth: 1, tickcolor: "darkblue" },
-        bar: { color: "limegreen" },
+        bar: { color: "#" },
         bgcolor: "white",
         borderwidth: 0.5,
         bordercolor: "gray",

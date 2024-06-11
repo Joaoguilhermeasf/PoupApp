@@ -22,6 +22,7 @@ body {
   z-index: -1;
 }
 
+
 .background img {
   position: absolute;
   min-width: 100%;
@@ -127,19 +128,40 @@ body {
   max-height: 20vw;
 }
 
-.sidebar .schedule {
+.sidebar .schedule a{
+  text-decoration: none;
   font-size: 14px;
   display: flex;
   align-items: center;
   justify-content: space-between;
   padding: 10px;
   border-radius: 5px;
-  background-color: #00c39a;
-  color: rgb(255, 255, 255);
+  background-color: white;
+  border: solid;
+  border-color: #00c39a;
+  border-width:2px;
+  color: #00c39a;
   width: 85%;
   font-weight: bold;
 }
 
+.sidebar .schedule a:hover{
+  text-decoration: none;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px;
+  border-radius: 5px;
+  background-color: #fcd432;
+  border: solid;
+  border-color: #fcd432;
+  border-width:2px;
+  color: white;
+  width: 85%;
+  font-weight: bold;
+  transition: background-color 0.7s ease;
+}
 .sidebar .profile {
   display: flex;
   align-items: center;
