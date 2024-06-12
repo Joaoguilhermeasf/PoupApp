@@ -85,7 +85,7 @@ function iniciarGrafico() {
       }
     },
     forecastDataPoints: {
-      count: 7
+      count: 13 - mesAtual
     },
     stroke: {
       width: 5,
