@@ -90,7 +90,7 @@ def autenticar():
             password = check_password_hash(user.user_pass, form.password.data)
             if password:
                 print('pass ok')
-                log_user = User(user.user_login, user.user_firstname, user.user_lastname, user.user_pass, user.user_email, user.user_access_level)
+                log_user = User(user.user_id, user.user_login, user.user_firstname, user.user_lastname, user.user_pass, user.user_email, user.user_access_level)
                 login_user(log_user)
                 print('Usuário logado:', user)
                 return redirect(url_for('dashboard'))
