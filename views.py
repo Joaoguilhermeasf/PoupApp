@@ -10,6 +10,9 @@ def index():
 @app.route("/login/<error>")
 @app.route("/login/")
 def login(error=""):
+    if current_user.is_authenticated:
+        return redirect(url_for('dashboard'))
+
     form = UserForm()
     success = session.pop('success', None)
     return render_template("index.html", form=form, error=error, success=success)

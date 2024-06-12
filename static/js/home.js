@@ -25,13 +25,6 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   });
 
-  // Calcular o valor máximo do array series.data
-
-var series_values = [];
-var series_dates = [];
-var maxYValue;
-var lenDates;
-
 fetch('/gastos')
   .then(response => response.json())
   .then(data => {
@@ -43,13 +36,23 @@ fetch('/gastos')
     maxYValue = Math.max(...series_values);
     minYValue = Math.min(...series_values);
     lenDates = series_dates.length;
-
+    mesAtual = data.mesAtual;
     // Inicializar o gráfico ApexCharts após receber os dados
     iniciarGrafico();
   })
   .catch(error => {
     console.error('Erro:', error);
   });
+
+  function getMonthName(monthNumber) {
+    const months = [
+        'Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho',
+        'Julho', 'Agosto', 'Setembro', 'Outubro', 'Novembro', 'Dezembro'
+    ];
+
+    // Os índices do array começam em 0, então subtrair 1 do número do mês
+    return months[monthNumber - 1];
+}
 
 function iniciarGrafico() {
   // Código para inicializar o gráfico ApexCharts
@@ -71,8 +74,13 @@ function iniciarGrafico() {
     tooltip: {
       y: {
         formatter: function(value) {
-          // Formatar o valor como moeda ou float
-          return 'R$ ' + parseFloat(value).toFixed(2); // ou qualquer formatação de moeda ou float desejada
+          return 'R$ ' + parseFloat(value).toFixed(2);
+        }
+      },
+      x: {
+        formatter: function(value) {
+            console.log(value)
+            return 'Total gasto em '+ getMonthName(new Date(value).getMonth() + 1);
         }
       }
     },
@@ -87,22 +95,23 @@ function iniciarGrafico() {
     xaxis: {
       type: 'datetime',
       categories: series_dates,
-      tickAmount: lenDates,
       labels: {
-        formatter: function(value, timestamp, opts) {
-          return opts.dateFormatter(new Date(timestamp), 'MMM yyyy')
+        datetimeFormatter: {
+          year: 'yyyy',
+          month: 'MMM yyyy',
+          day: 'dd MMM yyyy'
         }
       }
-    },
+  },
     yaxis: {
-      min: (minYValue -2) < 0 ? 0 : minYValue-2 ,
-      tickAmount: maxYValue / 2
+      min: (minYValue -2) < 0 ? 0 : minYValue - 2,
+      ...(maxYValue < 20 ? { tickAmount: maxYValue/2+1 } : {}),
     },
     fill: {
       type: 'gradient',
       gradient: {
         shade: 'dark',
-        gradientToColors: ['#c92d0e'], // Alterado para laranja claro
+        gradientToColors: ['#c92d0e'],
         shadeIntensity: 1,
         type: 'vertical',
         opacityFrom: 100,
