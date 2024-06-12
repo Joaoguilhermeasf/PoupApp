@@ -12,13 +12,17 @@ mail = Mail(app)
 s = URLSafeTimedSerializer(app.config['SECRET_KEY'])
 
 class User(UserMixin):
-    def __init__(self, user_login, user_firstname, user_lastname, user_pass, user_email, user_access_level):
+    def __init__(self, user_id, user_login, user_firstname, user_lastname, user_pass, user_email, user_access_level):
+        self.user_id = user_id
         self.user_login = user_login
         self.user_firstname = user_firstname
         self.user_lastname = user_lastname
         self.user_pass = user_pass
         self.user_email = user_email
         self.user_access_level = user_access_level
+
+    def get_user_id(self):
+        return (self.user_id)
 
     def get_id(self):
            return (self.user_login)
@@ -31,7 +35,7 @@ class User(UserMixin):
         print('User login: ',login)
         user_record = Users.query.filter_by(user_login=login).first()
         if user_record:
-            return User(user_record.user_login, user_record.user_firstname, user_record.user_lastname, user_record.user_pass, user_record.user_email, user_record.user_access_level)
+            return User(user_record.user_id, user_record.user_login, user_record.user_firstname, user_record.user_lastname, user_record.user_pass, user_record.user_email, user_record.user_access_level)
         return None
 
 #TODO: Terminar, criptografar senha, verificações devidas

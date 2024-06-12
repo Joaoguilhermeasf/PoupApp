@@ -19,6 +19,8 @@ def load_user(user_login):
 
 from views import *
 from users import *
+from views_expenses import *
+
 
 if __name__ == '__main__':
     app.run(debug=True)

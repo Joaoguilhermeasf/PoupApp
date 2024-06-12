@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PoupApp</title>
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="{{ url_for('static', filename='css/home.css') }}">
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="icon" type="image/png" href="{{ url_for('static', filename='img/logo.png') }}">
+<script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+<link href="https://fonts.googleapis.com/css2?family=Satoshi:wght@400;700&display=swap" rel="stylesheet">
+<script src="https://cdn.plot.ly/plotly-latest.min.js"></script> <!-- Adicionado -->
+</head>
+<body>
+  <div class="background">
+    <img src="{{ url_for('static', filename='img/home_bg.png') }}" alt="">
+  </div>
+  <div class="content">
+    <div class="sidebar">
+      <div class="top">
+        <div class="logo">
+          <img src="{{ url_for('static', filename='img/logo.png') }}" alt="Logo">
+        </div>
+        <ul class="menu">
+          <li class="listaMenu"><a href="#"><span>INÍCIO</span></a></li>
+          <li class="listaMenu">
+            <a href="#"><span>ANÁLISES</span></a>
+            <ul class="submenu">
+              <li><a href="#">GRÁFICOS</a></li>
+              <li><a href="#">MESES ANTERIORES</a></li>
+            </ul>
+          </li>
+          <li class="listaMenu"><a href="#"><span>GASTOS</span></a>
+            <ul class="submenu">
+              <li><a href="#">CADASTRAR</a></li>
+            </ul>
+          </li>
+          <li class="listaMenu"><a href="#"><span>RECEITAS</span></a>
+            <ul class="submenu">
+              <li><a href="#">GANHOS</a></li>
+              <li><a href="#">REEMBOLSOS</a></li>
+              <li><a href="#">ECONOMIAS</a></li>
+              <li><a href="#">PAGAMENTOS</a></li>
+            </ul>
+          </li>
+          <li class="listaMenu"><a href="#"><span>USUÁRIO</span></a>
+            <ul class="submenu">
+              <li><a href="#">PERFIL DE USUÁRIO</a></li>
+              <li><a href="#">CONFIGURAÇÕES DE USUÁRIO</a></li>
+              <li><a method='post' href="{{ url_for('deslogar') }}">SAIR</a></li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+      <div class="bottom">
+        <div class="schedule">
+          <a href="">OBTER VERSÃO PRO</a>
+        </div>
+        <div class="profile">
+          <img src="{{ url_for('static', filename='img/perfil.png') }}" alt="Profile Picture">
+          <div>
+            <div>{{ user.user_firstname }} {{ user.user_lastname}}</div>
+            <div style="color: #aaa;">{{ user.get_access_level() }}</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="articles">
+      <form method='post' action="{{ url_for('cadgastos') }}">
+        {{ form.hidden_tag() }}
+
+        {{ form.expense_category.label }}<br>
+        {{ form.expense_category }}<br><br>
+
+        {{ form.expense_amount.label }}<br>
+        {{ form.expense_amount }}<br><br>
+
+        {{ form.expense_description.label }}<br>
+        {{ form.expense_description }}<br><br>
+
+        {{ form.expense_date.label }}<br>
+        {{ form.expense_date }}<br><br>
+
+        {{ form.cadastrar }}
+      </form>
+
+    </div>
+  </div>
+  <script src="{{ url_for('static', filename='js/home.js') }}"></script>
+
+</body>
+</html>
