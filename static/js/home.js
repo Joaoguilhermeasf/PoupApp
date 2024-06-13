@@ -105,7 +105,7 @@ function iniciarGrafico() {
   },
     yaxis: {
       min: (minYValue -2) < 0 ? 0 : minYValue - 2,
-      ...(maxYValue < 20 ? { tickAmount: maxYValue/2+1 } : {}),
+      tickAmount: 6,
     },
     fill: {
       type: 'gradient',

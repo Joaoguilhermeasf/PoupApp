@@ -30,6 +30,9 @@ class User(UserMixin):
     def get_access_level(self):
         return (self.user_access_level)
 
+    def has_pro(self):
+        return self.user_access_level == 'PRO'
+
     @staticmethod
     def get(login):
         print('User login: ',login)
