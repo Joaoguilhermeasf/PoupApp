@@ -1,0 +1,12 @@
+{
+  "apps": [
+    {
+      "app_id": "app_d3939f19-97b0-46df-a10e-a2bcc411938d",
+      "org_id": "user_d72fb9e6-92bf-44fd-9ef7-e0795321d92c",
+      "deploy_url": "https://push-n1-mtl-clevercloud-customers.services.clever-cloud.com/app_d3939f19-97b0-46df-a10e-a2bcc411938d.git",
+      "git_ssh_url": "git+ssh://git@push-n1-mtl-clevercloud-customers.services.clever-cloud.com/app_d3939f19-97b0-46df-a10e-a2bcc411938d.git",
+      "name": "Poupapp",
+      "alias": "Poupapp"
+    }
+  ]
+}
