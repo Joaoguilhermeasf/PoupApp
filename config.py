@@ -1,7 +1,7 @@
 SECRET_KEY = 'ryanzada'
 
 SQLALCHEMY_DATABASE_URI = \
-    '{SGBD}://{usuario}:{senha}@{servidor}/{database}'.format(
+    '{SGBD}://{usuario}:{senha}@{servidor}:50013/{database}'.format(
         SGBD = 'postgresql',
         usuario = 'uwm61dodfhfqbcxtcfea',
         senha = 'HN7NnLb7U8ZeUyszPrVUH3RNxgcuLF',
