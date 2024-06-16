@@ -3,10 +3,10 @@ SECRET_KEY = 'ryanzada'
 SQLALCHEMY_DATABASE_URI = \
     '{SGBD}://{usuario}:{senha}@{servidor}/{database}'.format(
         SGBD = 'postgresql',
-        usuario = 'postgres',
-        senha = '9933',
-        servidor = '127.0.0.1',
-        database = 'poupapp'
+        usuario = 'uwm61dodfhfqbcxtcfea',
+        senha = 'HN7NnLb7U8ZeUyszPrVUH3RNxgcuLF',
+        servidor = 'bnh3np1gwjm3tmxli5ie-postgresql.services.clever-cloud.com',
+        database = 'bnh3np1gwjm3tmxli5ie'
     )
 
 MAIL_SERVER = 'smtp.gmail.com'
