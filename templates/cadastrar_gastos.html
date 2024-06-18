@@ -11,11 +11,14 @@
 <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
 <link href="https://fonts.googleapis.com/css2?family=Satoshi:wght@400;700&display=swap" rel="stylesheet">
 <script src="https://cdn.plot.ly/plotly-latest.min.js"></script> <!-- Adicionado -->
+<style>
+  body {
+    background: url('{{ url_for('static', filename='img/fundo.png') }}') no-repeat center center fixed;
+    background-size: cover;
+  }
+</style>
 </head>
 <body>
-  <div class="background">
-    <img src="{{ url_for('static', filename='img/home_bg.png') }}" alt="">
-  </div>
   <div class="content">
     <div class="sidebar">
       <div class="top">
@@ -23,7 +26,7 @@
           <img src="{{ url_for('static', filename='img/logo.png') }}" alt="Logo">
         </div>
         <ul class="menu">
-          <li class="listaMenu"><a href="#"><span>INÍCIO</span></a></li>
+          <li class="listaMenu"><a href="{{ url_for('dashboard') }}"><span>INÍCIO</span></a></li>
           <li class="listaMenu">
             <a href="#"><span>ANÁLISES</span></a>
             <ul class="submenu">
@@ -55,7 +58,7 @@
       </div>
       <div class="bottom">
         <div class="schedule">
-          <a href="">OBTER VERSÃO PRO</a>
+          <a href="" class="schedule-button">OBTER VERSÃO PRO</a>
         </div>
         <div class="profile">
           <img src="{{ url_for('static', filename='img/perfil.png') }}" alt="Profile Picture">
@@ -67,24 +70,33 @@
       </div>
     </div>
     <div class="articles">
-      <form method='post' action="{{ url_for('cadgastos') }}">
-        {{ form.hidden_tag() }}
+      <div class="spend-box">
+        <form method='post' action="{{ url_for('cadgastos') }}">
+          {{  form.hidden_tag() }}
 
-        {{ form.expense_category.label }}<br>
-        {{ form.expense_category }}<br><br>
+          <div class="spend-header">
+            {{ form.expense_category.label }}<br>
+            {{ form.expense_category(class="spend-cat") }}<br><br>
+          </div>
+          
+          <div class="spend-input">
+            {{ form.expense_amount.label }}<br>
+            {{ form.expense_amount }}<br><br>
+          </div>
 
-        {{ form.expense_amount.label }}<br>
-        {{ form.expense_amount }}<br><br>
+          <div class="spend-input">
+            {{ form.expense_description.label }}<br>
+            {{ form.expense_description }}<br><br>
+          </div>
 
-        {{ form.expense_description.label }}<br>
-        {{ form.expense_description }}<br><br>
+          <div class="spend-input">
+            {{ form.expense_date.label }}<br>
+            {{ form.expense_date }}<br><br>
+          </div>
 
-        {{ form.expense_date.label }}<br>
-        {{ form.expense_date }}<br><br>
-
-        {{ form.cadastrar }}
-      </form>
-
+          {{ form.cadastrar(class="spend-cat") }}
+        </form>
+      </div>
     </div>
   </div>
   <script src="{{ url_for('static', filename='js/home.js') }}"></script>

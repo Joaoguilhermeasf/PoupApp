@@ -36,8 +36,8 @@ body {
   grid-template-columns: 14vw auto;
   gap: 20px;
   min-height: 700px;
-  background-color: #eeeeeee7;
-  box-shadow: 4px 0 8px rgba(0, 0, 0, 0.178);
+  background-color: #ffffff6c;
+  border-radius: 10px;
 }
 
 .sidebar {
@@ -107,9 +107,10 @@ body {
   justify-content: space-between;
   padding: 10px;
   border-radius: 5px;
-  background-color: #00c39a;
+  background: linear-gradient(100deg, #51b967 0%, #0f572e 100%);
+  border: none; 
   color: rgb(255, 255, 255);
-  width: 85%;
+  width: 95%;
   font-weight: bold;
 }
 
@@ -133,15 +134,15 @@ body {
   font-size: 14px;
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: center;
   padding: 10px;
   border-radius: 5px;
   background-color: white;
   border: solid;
-  border-color: #00c39a;
+  border-color: #0f572e;
   border-width:2px;
-  color: #00c39a;
-  width: 85%;
+  color: #0f572e;
+  width: 95%;
   font-weight: bold;
 }
 
@@ -150,7 +151,7 @@ body {
   font-size: 14px;
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: center;
   padding: 10px;
   border-radius: 5px;
   background-color: #fcd432;
@@ -158,7 +159,7 @@ body {
   border-color: #fcd432;
   border-width:2px;
   color: white;
-  width: 85%;
+  width: 95%;
   font-weight: bold;
   transition: background-color 0.7s ease;
 }
@@ -427,4 +428,59 @@ body {
   .listaMenu span {
     width: 100%;
   }
+}
+
+.spend-box {
+  width: 100%;
+  height: 80vh;
+  background-color: #ffffff;
+  border-radius: 10px;
+  box-shadow: 1px 4px 10px 8px rgba(0, 0, 0, 0.178);
+  align-items: center;
+  display: flex;
+  justify-content: center;
+}
+
+.spend-header label{
+  font-size: 40px;
+  font-weight: bold;
+}
+
+.spend-header {
+  font-size: 20px;
+}
+
+.spend-cat {
+  background: linear-gradient(100deg, #51b967 0%, #0f572e 100%);
+  border: none;
+  padding: 0.8rem 1rem;
+  border-radius: 5px;
+  cursor: pointer;
+  color: #fff;
+  min-width: 300px;
+  font-size: large;
+}
+
+
+.spend-input input{
+  padding: 0.5rem 1.2rem;
+  margin: 0.2rem 0;
+  border: 1px solid #666666;
+  border-radius: 5px;
+  background-color: #F5F3EF;
+  min-width: 300px;
+}
+
+.spend-input input:focus-visible{
+  outline: 1px solid #18c764;
+}
+
+.spend-input label{
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: #000000c0
+}
+
+.spend-input {
+  margin-top: 0.2%;
 }
