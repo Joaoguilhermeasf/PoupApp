@@ -2,19 +2,16 @@
 {% block content %}
 
     <div class="container">
-        <div class="background">
-            <img src="{{ url_for('static', filename='img/background.png') }}" alt="Efeitos">
-        </div>
         <div class="login-box">
             <div class="center-container">
                 <div class="ilustra">
-                  <img src="{{ url_for('static', filename='img/security.svg') }}" alt="Efeitos" class="floating">
+                  <img src="{{ url_for('static', filename='img/security-2.svg') }}" alt="Efeitos" class="floating">
                 </div>
             </div>
             <div class="login-form">
                 <form method='post' action="{{ url_for('autenticar') }}">
                     {{ form.hidden_tag() }}
-                    <h2>PoupApp</h2>
+                    <h2>POUPAPP</h2>
                     <p>Entre em sua conta.</p>
                     {{ form.login(placeholder="Usuário") }}
                     {{ form.password(placeholder="Senha") }}

@@ -1,8 +1,21 @@
+@font-face {
+  font-family: Poppins-Medium;
+  src: url(/static/fontes/Poppins-Medium.ttf);
+}
+@font-face {
+  font-family: Days-Sans;
+  src: url(/static/fontes/Days\ Sans\ Black.otf);
+}
+@font-face {
+  font-family: Poppins-Bold;
+  src: url(/static/fontes/Poppins-Bold.ttf);
+}
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: 'Roboto', sans-serif;
+  font-family: Poppins-Medium;
 }
 
 body{
@@ -11,7 +24,7 @@ body{
   display: flex;
   justify-content: center;
   align-items: center;
-  background: linear-gradient(145deg, #a6ddb2 0%, #0f572e 100%);
+  background-color: #031227;
 }
 
 
@@ -55,9 +68,10 @@ min-height: 100%;
 }
 
 .login-form h2 {
+  font-family: Poppins-Bold;
   font-weight: bold;
   margin: 0;
-  color: #484139;
+  color: #031227;
 }
 
 .login-form p {
@@ -69,18 +83,19 @@ min-height: 100%;
   width: 90%;
   padding: 10px;
   margin: 10px 0;
-  border: 1px solid #666666;
+  border: none;
+  box-shadow: 1px 1px 3px #0000005b;
   border-radius: 5px;
   background-color: #F5F3EF;
 }
 
 .login-form input:focus-visible{
-  outline: 1px solid #18c764;
+  outline: 1px solid #9CDA5F;
 }
 
 
 .login-form a {
-  color: #207344;
+  color: #6C8C4B;
   text-decoration: none;
   display: block;
   margin: 10px 0;
@@ -92,10 +107,12 @@ min-height: 100%;
   margin: 10px 0;
   border: none;
   border-radius: 5px;
-  background: #207344;
+  background: #9CDA5F;
+  box-shadow: 3px 3px  #6C8C4B;
   color: #fff;
   cursor: pointer;
 }
+
 
 .login-form{
   margin-top: 20px;

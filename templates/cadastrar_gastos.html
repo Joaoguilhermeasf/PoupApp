@@ -11,19 +11,14 @@
 <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
 <link href="https://fonts.googleapis.com/css2?family=Satoshi:wght@400;700&display=swap" rel="stylesheet">
 <script src="https://cdn.plot.ly/plotly-latest.min.js"></script> <!-- Adicionado -->
-<style>
-  body {
-    background: url('{{ url_for('static', filename='img/fundo.png') }}') no-repeat center center fixed;
-    background-size: cover;
-  }
-</style>
 </head>
 <body>
   <div class="content">
     <div class="sidebar">
       <div class="top">
         <div class="logo">
-          <img src="{{ url_for('static', filename='img/logo.png') }}" alt="Logo">
+          <img src="{{ url_for('static', filename='img/logo-2.svg') }}" alt="Logo">
+          <a>PoupApp</a>
         </div>
         <ul class="menu">
           <li class="listaMenu"><a href="{{ url_for('dashboard') }}"><span>INÍCIO</span></a></li>
@@ -69,14 +64,17 @@
         </div>
       </div>
     </div>
-    <div class="articles">
+    <div class="articles-register">
+      <div class="ilustra">
+        <img src="{{ url_for('static', filename='img/regsiter-img.svg') }}" alt="Efeitos" class="floating">
+      </div>
       <div class="spend-box">
         <form method='post' action="{{ url_for('cadgastos') }}">
           {{  form.hidden_tag() }}
 
           <div class="spend-header">
             {{ form.expense_category.label }}<br>
-            {{ form.expense_category(class="spend-cat") }}<br><br>
+            {{ form.expense_category (class="spend-cat")}}<br><br>
           </div>
           
           <div class="spend-input">
