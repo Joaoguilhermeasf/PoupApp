@@ -499,10 +499,9 @@ body {
 }
 
 .spend-header select option{
-  margin-top: 90px ;
   background-color: #031227;
 }
-.spend-header select option a:hover{
+.spend-header select option:hover{
   background-color: #6C8C4B;
 }
 
@@ -554,4 +553,14 @@ body {
   
 .floating-itens {
   animation: float-itens 5s ease-in-out infinite;
+}
+
+.menu span:hover{
+  background-color: #6C8C4B;
+  transition: background-color 0.4s ease;
+}
+
+.spend-cat:hover{
+  background-color: #6C8C4B;
+  transition: background-color 0.4s ease;
 }
