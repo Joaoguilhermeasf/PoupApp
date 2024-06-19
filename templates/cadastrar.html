@@ -5,7 +5,7 @@
 
 <div class="container-register">
     <div class="register-img">
-        <img src="{{ url_for('static', filename='img/register.svg') }}" alt="image register" class="floating">
+        <img src="{{ url_for('static', filename='img/register-2.svg') }}" alt="image register" class="floating">
     </div>
     <div class="register-form">
         <form action="{{ url_for('cadastrar') }}" method="post">
@@ -46,7 +46,7 @@
             </div>
         </form>
         <div class="login-button">
-            <button><a href="{{ url_for('login') }}" role="button">Voltar</a></button>
+            <a href="{{ url_for('login') }}" role="button"><button>Voltar</button></a>
         </div>
     </div>
 </div>

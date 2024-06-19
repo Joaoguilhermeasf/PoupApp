@@ -266,7 +266,7 @@ animation: float-itens 5s ease-in-out infinite;
   width: 80%;
   height: 80vh;
   box-shadow: 5px 5px 10px rgba(0,0,0, 0.212);
-  background-color: #F5F3EF;
+  background: rgba(255, 255, 255, 0.65);
   display: flex;
   border-radius: 5px;
 }
@@ -316,6 +316,7 @@ animation: float-itens 5s ease-in-out infinite;
 }
 
 .input-group {
+  margin-top: 10%;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
@@ -329,9 +330,10 @@ animation: float-itens 5s ease-in-out infinite;
 }
 
 .input-box input{
+  box-shadow: 1px 1px 3px #0000005b;
   padding: 0.5rem 1.2rem;
   margin: 0.6rem 0;
-  border: 1px solid #666666;
+  border: none;
   border-radius: 10px;
   background-color: #F5F3EF;
 }
@@ -352,7 +354,9 @@ animation: float-itens 5s ease-in-out infinite;
 }
 
 .register-button{
-  background-color: #0f572e;
+  border: none;
+  background: #9CDA5F;
+  box-shadow: 3px 3px  #6C8C4B;
   padding: 0.4rem 1rem;
   border-radius: 5px;
   cursor: pointer;
@@ -393,9 +397,18 @@ animation: float-itens 5s ease-in-out infinite;
   }
 }
 
-.login-button{
+.login-button button{
+  margin-top: 5%;
+  border: none;
   position: relative;
   display: block;
+  background: #9CDA5F;
+  box-shadow: 3px 3px  #6C8C4B;
+  color: #fff;
+}
+
+.login-button a{
+  text-decoration: none;
 }
 
 @media (max-width: 1530px){
