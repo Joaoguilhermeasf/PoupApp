@@ -126,32 +126,7 @@ function iniciarGrafico() {
 }
 
   // Código para inicializar o gráfico Plotly
-  var data = [
-    {
-      type: "indicator",
-      mode: "gauge+number+delta",
-      value: 14943,
-      title: { text: "Rendimentos Totais", font: { size: 24 } },
-      delta: { reference: 12550, increasing: { color: "green" } },
-      gauge: {
-        axis: { range: [null, 20000], tickwidth: 1, tickcolor: "darkblue" },
-        bar: { color: "#" },
-        bgcolor: "white",
-        borderwidth: 0.5,
-        bordercolor: "gray",
-        steps: [
-          { range: [5000, 11000], color: "lightyellow" },
-          { range: [11000, 16000], color: "lightgreen" },
-          { range: [16000, 20000], color: "green" }
-        ],
-        threshold: {
-          line: { color: "black", width: 1 },
-          thickness: 0.75,
-          value: 19000
-        }
-      }
-    }
-  ];
+ 
 
   var layout = {
     height: 300,
@@ -162,5 +137,20 @@ function iniciarGrafico() {
 
   var config = { displayModeBar: false }; // Configuração para remover a barra de ferramentas
 
-  Plotly.newPlot('velocimetro', data, layout, {displayModeBar: false}); // Alterado para usar 'velocimetro' e aplicar a configuração correta
 });
+var donutOptions = {
+  series: [44, 55, 41, 17, 15],
+  chart: {
+    type: 'donut',
+  },
+  labels: ['Compras', 'Alimentação', 'Saúde', 'Lazer', 'Outros'],
+  colors: ['#00c39a', '#f17e5d', '#5b70e5', '#ffbe0b', '#00EAF2'],
+  legend: {
+    show: false // Remover a legenda
+  }
+}
+
+
+
+var donutChart = new ApexCharts(document.querySelector("#donutChart"), donutOptions);
+donutChart.render();
