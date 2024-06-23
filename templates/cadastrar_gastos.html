@@ -29,12 +29,8 @@
               <li><a href="#">MESES ANTERIORES</a></li>
             </ul>
           </li>
-          <li class="listaMenu"><a href="#"><span>GASTOS</span></a>
-            <ul class="submenu">
-              <li><a href="#">CADASTRAR</a></li>
-            </ul>
-          </li>
-          <li class="listaMenu"><a href="#"><span>RECEITAS</span></a>
+          <li class="listaMenu"><a href="#"><span>GASTOS</span></a></li>
+          <li class="listaMenu"><a href="#"><span>GANHOS</span></a>
             <ul class="submenu">
               <li><a href="#">CADASTRAR</a></li>
             </ul>
@@ -65,7 +61,9 @@
       <div class="ilustra">
         <img src="{{ url_for('static', filename='img/regsiter-img.svg') }}" alt="Efeitos" class="floating">
       </div>
+      
       <div class="spend-box">
+       
         <form method='post' action="{{ url_for('cadgastos') }}">
           {{  form.hidden_tag() }}
 
@@ -90,8 +88,14 @@
           </div>
 
           {{ form.cadastrar(class="spend-cat") }}
+          <button type="button" class="botaogerenciador">Gerenciar</button>
         </form>
       </div>
+
+      <div class="hidden-div">
+        <img src="{{ url_for('static', filename='img/regsiter-img.svg') }}" alt="Efeitos" class="hidden-content">
+      </div>
+
     </div>
   </div>
   <script src="{{ url_for('static', filename='js/home.js') }}"></script>

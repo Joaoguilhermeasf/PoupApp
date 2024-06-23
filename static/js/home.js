@@ -154,3 +154,36 @@ var donutOptions = {
 
 var donutChart = new ApexCharts(document.querySelector("#donutChart"), donutOptions);
 donutChart.render();
+
+document.addEventListener('DOMContentLoaded', function() {
+  const buttonRemover = document.querySelector(".botaogerenciador");
+  const spendBox = document.querySelector(".spend-box");
+  const hiddenDiv = document.querySelector(".hidden-div");
+  const hiddenContent = document.querySelector(".hidden-content");
+  let isAnimating = false;
+
+  buttonRemover.addEventListener("click", function() {
+    if (!isAnimating) {
+      isAnimating = true;
+
+      if (spendBox.classList.contains("move-in-out")) {
+        spendBox.classList.remove("move-in-out");
+        spendBox.classList.add("move-out-in");
+        hiddenDiv.classList.remove("visible"); // Esconde a div hidden-div
+        hiddenContent.style.opacity = 0; // Esconde o conteúdo da hidden-div
+      } else {
+        spendBox.classList.add("move-in-out");
+        spendBox.classList.remove("move-out-in");
+        hiddenDiv.classList.add("visible"); // Mostra a div hidden-div
+        hiddenContent.style.opacity = 1; // Mostra o conteúdo da hidden-div
+      }
+
+      // Atualiza o estado da animação após um intervalo de tempo
+      setTimeout(() => {
+        isAnimating = false;
+      }, 1000); // Ajuste o tempo de acordo com a duração da animação em milissegundos
+    }
+  });
+});
+
+

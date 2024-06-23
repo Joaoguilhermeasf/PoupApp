@@ -44,7 +44,7 @@ body {
 }
 
 .content {
-  height: 40vw;
+  height: 85vh;
   width: 80vw;
   display: grid;
   grid-template-columns: 14vw auto;
@@ -227,7 +227,9 @@ body {
   padding: 10px 20px 10px 20px;
   box-sizing: border-box;
 }
-
+.dados{
+  margin-top: 8px;
+}
 .articles {
   display: flex;
   flex-direction: column;
@@ -255,11 +257,11 @@ body {
 .articleitem2 {
   display: flex;
   border-radius: 10px;
-  background-color: white;
   box-shadow: 1px 1px 3px #0000005b;
 }
 
 .articleitem1 {
+  background-color: #ffffffcb;
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -268,6 +270,7 @@ body {
 }
 
 .articleitem2 {
+  background-color: white;
   width: 30%;
   display: flex;
   flex-direction: column;
@@ -283,13 +286,6 @@ body {
   max-width: 300px;
 }
 
-.donutChart{
-  display: flex;
-  align-items: center;
-  justify-self: center;
-}
-
-
 .item2cont {
   margin-top: 10px;
   width: 100%;
@@ -298,7 +294,6 @@ body {
 
 .portfolio {
   background-color: rgb(255, 255, 255);
-  box-shadow: 1px 1px 5px 1px #0000005b;
   flex-grow: 1;
   padding: 2% 5% 0% 5%;
   border-radius: 10px;
@@ -308,6 +303,7 @@ body {
   justify-content: center;
   width: 100%;
   height: 100%;
+  transition: transform 0.3s ease;
 }
 
 .portfolio h1 {
@@ -319,7 +315,6 @@ body {
   display: flex;
   justify-content: space-around;
   margin-bottom: 20px;
-  gap: 10%;
 }
 
 .portfolio .stat {
@@ -355,9 +350,20 @@ body {
   color: #e74c3c;
 }
 
+.portfolio:hover{
+  transform:scale(1.02);
+  background-color: #9CDA5F;
+  color: #ffffff;
+}
+
+.portfolio:hover p,
+.portfolio:hover h2{
+  color: #ffffff;
+}
+
 .details {
   display: flex;
-  gap: 10px;
+  gap: 15px;
   width: 100%;
   padding: 0px 20px 0px 20px;
   box-sizing: border-box;
@@ -367,7 +373,6 @@ body {
 .squares {
   flex: 1;
   background-color: rgb(255, 255, 255);
-  box-shadow: 1px 1px 5px 1px #0000005b;
   border-radius: 10px;
   text-align: center;
   text-decoration: none;
@@ -381,7 +386,15 @@ body {
 
 .squares:hover {
   transform: scale(1.1);
+  background-color: #9CDA5F;
+  color: #ffffff; /* Substitua pela cor desejada */
 }
+
+.squares:hover p,
+.squares:hover h2 {
+  color: #ffffff; /* Substitua pela cor desejada */
+}
+
 .squares p {
   margin-top: 0;
   font-size: 1.1em;
@@ -485,6 +498,12 @@ body {
   align-items: center;
   justify-content: center;
   display: flex;
+  z-index: 1;
+}
+
+.spend-box form{
+  display: flex;
+  flex-direction: column;
 }
 
 .spend-header label{
@@ -527,7 +546,7 @@ body {
 }
 
 .spend-input input:focus-visible{
-  outline: 1px solid #9CDA5F;
+  outline: 1px solid #ffffff;
 }
 
 .spend-input label{
@@ -539,18 +558,96 @@ body {
 .spend-input {
   margin-top: 0.2%;
 }
+
+@keyframes moveInOut {
+  0% {
+    transform: translateX(0);
+  }
+
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+@keyframes moveOutIn {
+  0% {
+    transform: translateX(-100%);
+  }
+
+  100% {
+    transform: translateX(0);
+  }
+}
+
+.spend-box.move-in-out {
+  animation: moveInOut 1s forwards;
+}
+
+.spend-box.move-out-in {
+  animation: moveOutIn 1s forwards;
+}
+
+.botaogerenciador{
+  background-color: white;
+  border: solid;
+  border-color: #9CDA5F;
+  padding: 0.8rem 1rem;
+  border-radius: 5px;
+  cursor: pointer;
+  color: #000000;
+  min-width: 300px;
+  font-size: large;
+  margin-top: 10px;
+  transition: 0.5s ease;
+}
+
+.botaogerenciador:hover{
+  background-color: #9CDA5F;
+  box-shadow: 3px 3px  #6C8C4B;
+  color: #ffffff;
+}
+
+.hidden-div {
+  position: absolute;
+  top: 0;
+  left: 50%; /* Posiciona a .hidden-div à direita da .spend-box */
+  width: 50%; /* Ou o tamanho desejado */
+  height: 100%;
+  opacity: 0;
+  transition: opacity 0.3s;
+  z-index: 0;
+}
+
+.visible {
+  opacity: 1;
+}
+
+.tabela-de-despesas {
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.hidden-div.visible .tabela-de-despesas {
+  opacity: 1;
+}
+
+
 .articles-register {
   display: flex;
+  position: relative;
+  width: 100%;
+  height: 100%;
 }
 .ilustra {
   width: 50%;
-  max-width: 512px;
   height: auto;
   justify-content: center;
   justify-items: center;
   display: flex;
   margin-right:6%;
   margin-left: 3%;
+  flex: 1;
+  z-index: 0;
 }
   
 .ilustra img {

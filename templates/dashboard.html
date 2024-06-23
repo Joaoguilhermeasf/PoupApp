@@ -29,14 +29,11 @@
               <li><a href="#">MESES ANTERIORES</a></li>
             </ul>
           </li>
-          <li class="listaMenu"><a href="#"><span>GASTOS</span></a>
-            <ul class="submenu">
-              <li><a href="{{ url_for('cadgastos') }}">CADASTRAR</a></li>
-            </ul>
+          <li class="listaMenu"><a href="{{ url_for('cadgastos') }}"><span>GASTOS</span></a>
           </li>
-          <li class="listaMenu"><a href="#"><span>RECEITAS</span></a>
+          <li class="listaMenu"><a href="#"><span>GANHOS</span></a>
             <ul class="submenu">
-              <li><a href="#">CADASTRAR</a></li>
+              <li><a href="#">ADICIONAR</a></li>
             </ul>
           </li>
           <li class="listaMenu"><a href="#"><span>USUÁRIO</span></a>
@@ -69,15 +66,15 @@
               <div class="portfolio">
                 <div class="stats">
                   <div class="stat">
-                    <p>Saldo</p>
+                    <p>Saldo acumulado</p>
                     <h2>$42,069.00<br><span class="up">↑ 24%</span></h2>
                   </div>
                   <div class="stat">
-                    <p>Investimentos</p>
+                    <p>Total poupado</p>
                     <h2>$20,619.00<br><span class="up">↑ 28%</span></h2>
                   </div>
                   <div class="stat">
-                    <p>Despesas</p>
+                    <p>Despesas totais</p>
                     <h2>$8,961.00<br><span class="up">↑ 2%</span></h2>
                   </div>
                   <div class="stat">
@@ -89,44 +86,48 @@
             </div>
           </div>
           <div class="details">
-            <a href="pagina-de-destino1.html" class="squares">
-              <p>Gastos</p>
+            <div href="pagina-de-destino1.html" class="squares">
+              <p>Saldo diário</p>
               <h2>$150.00<br><span class="up">↑ 5%</span></h2>
-            </a>
-            <a href="pagina-de-destino2.html" class="squares">
-              <p>PETR4</p>
+            </div>
+            <div href="pagina-de-destino2.html" class="squares">
+              <p>Despesas diárias</p>
               <h2>$200.00<br><span class="down">↓ 3%</span></h2>
-            </a>
-            <a href="pagina-de-destino3.html" class="squares">
-              <p>BBAS3</p>
+            </div>
+            <div href="pagina-de-destino3.html" class="squares">
+              <p>Poupado hoje</p>
               <h2>$350.00<br><span class="up">↑ 8%</span></h2>
-            </a>
-            <a href="pagina-de-destino4.html" class="squares">
-              <p>PRIO3</p>
+            </div>
+            <div href="pagina-de-destino4.html" class="squares">
+              <p>Poupado este ano!</p>
               <h2>$120.00<br><span class="down">↓ 2%</span></h2>
-            </a>
+            </div>
           </div>
           <div id="chart" style="height: 370px; width: 100%;"></div>
         </div>
         <div class="articleitem2">
           <div class="item2cont">
-            <div id="donutChart" style="margin-top: 50px; height: 280px; width: 100%;"></div>
+            <div id="donutChart" style="height: 280px; width: 100%;"></div>
             <div class="w3-container">
-              <p>VAL3</p>
+              <p>Salários</p>
               <div class="w3-light-grey w3-round-xlarge">
-                <div class="w3-container w3-round-xlarge" style="width:28%; background-color: #00c39a; color:white;">28%</div>
+                <div class="w3-container w3-round-xlarge" style="width:28%; background-color: #9CDA5F; color:white;">28%</div>
               </div>
-              <p>PETR4</p>
+              <p>Equipamentos</p>
               <div class="w3-light-grey w3-round-xlarge">
-                <div class="w3-container w3-round-xlarge" style="width:30%; background-color: #00c39a; color:white;">30%</div>
+                <div class="w3-container w3-round-xlarge" style="width:28%; background-color: #9CDA5F; color:white;">28%</div>
               </div>
-              <p>BBAS3</p>
+              <p>Manutenção</p>
               <div class="w3-light-grey w3-round-xlarge">
-                <div class="w3-container w3-round-xlarge" style="width:33%; background-color: #00c39a; color:white;">33%</div>
+                <div class="w3-container w3-round-xlarge" style="width:30%; background-color: #9CDA5F; color:white;">30%</div>
               </div>
-              <p>PRIO3</p>
+              <p>Impostos</p>
               <div class="w3-light-grey w3-round-xlarge">
-                <div class="w3-container w3-round-xlarge" style="width:37%; background-color: #00c39a; color:white;">37%</div>
+                <div class="w3-container w3-round-xlarge" style="width:33%; background-color: #9CDA5F; color:white;">33%</div>
+              </div>
+              <p>Seguro</p>
+              <div class="w3-light-grey w3-round-xlarge">
+                <div class="w3-container w3-round-xlarge" style="width:37%; background-color: #9CDA5F; color:white;">37%</div>
               </div>
             </div>
             </div>
