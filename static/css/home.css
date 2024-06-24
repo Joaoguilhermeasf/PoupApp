@@ -149,6 +149,21 @@ body {
   font-weight: bold;
 }
 
+.SelMenu span{
+  border: solid;
+  border-color: #9CDA5F;
+  margin-top: 10px;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px;
+  border-radius: 5px;
+  color: #9CDA5F;
+  width: 95%;
+  font-weight: bold;
+}
+
 .sidebar .menu .submenu li a {
   color: rgb(255, 255, 255);
   font-size: 12px;
@@ -664,6 +679,13 @@ body {
 
 .menu span:hover{
   background-color: #6C8C4B;
+  transition: background-color 0.4s ease;
+}
+
+.SelMenu span:hover{
+  background-color: #6C8C4B;
+  border-color: #6C8C4B;
+  color: white;
   transition: background-color 0.4s ease;
 }
 
